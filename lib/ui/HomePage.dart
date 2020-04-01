@@ -20,7 +20,7 @@ final TextEditingController _TextControl = new TextEditingController();
   void metrik(int value){
     setState(() {
       weightValue = value;
-      if (weightValue == 0){
+      if (weightValue == 5){
         kgvalue = double.parse(_TextControl.text) / 2.2046;
       }
       else{
@@ -51,6 +51,20 @@ final TextEditingController _TextControl = new TextEditingController();
       }
       else{
         finalword = "Please enter your weight";
+      }
+      if(weightValue == 5 || weightValue == 6){
+      switch(weightValue){
+        case 5:
+        if (weightValue == 5 && (_TextControl.text.isNotEmpty && kgvalue > 0)){
+            finalword = finalword + " kg";
+          }
+        break;
+        case 6:
+        if (weightValue == 6 && (_TextControl.text.isNotEmpty && kgvalue > 0)){
+            finalword = finalword + " lbs";
+          }
+        break;
+      }
       }
     });
   }
@@ -97,9 +111,9 @@ final TextEditingController _TextControl = new TextEditingController();
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new Radio<int>(value: 0, groupValue: weightValue, onChanged: metrik),
+                      new Radio<int>(value: 5, groupValue: weightValue, onChanged: metrik),
                       new Text("kg"),
-                      new Radio<int>(value: 1, groupValue: weightValue, onChanged: metrik,),
+                      new Radio<int>(value: 6, groupValue: weightValue, onChanged: metrik,),
                       new Text("lbs")
                     ],
                   ),
@@ -130,7 +144,7 @@ final TextEditingController _TextControl = new TextEditingController();
                     ],
                   ),
                   new Padding(padding: new EdgeInsets.all(15.5)),
-                  new Text( weightValue == 0 ? finalword + " kg" : finalword + " lbs",
+                  new Text( finalword,
                   style: new TextStyle(color: Colors.white,
                   fontWeight: FontWeight.w500,
                   fontSize: 19.4),)
