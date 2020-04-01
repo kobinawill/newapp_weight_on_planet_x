@@ -10,10 +10,11 @@ class HomePage extends StatefulWidget {
 class homepage extends State<HomePage> {
 final TextEditingController _TextControl = new TextEditingController();
 
-  int radioValue, weightValue = 0;
+  int radioValue = 0;
   double _finalResult = 0.0;
   String finalword = "";
   double kgvalue = 0.0;
+  int weightValue ;
 
 
 
@@ -22,10 +23,17 @@ final TextEditingController _TextControl = new TextEditingController();
       weightValue = value;
       if (weightValue == 5){
         kgvalue = double.parse(_TextControl.text) / 2.2046;
+        print(weightValue);
       }
-      else{
+      else if (weightValue == 6){
         kgvalue = kgvalue = double.parse(_TextControl.text);
+        print(weightValue);
       }
+      else if (weightValue == null){
+        finalword = "please enter number type value";
+        print("please enter number type value");
+      }
+
     });
   }
 
@@ -52,7 +60,8 @@ final TextEditingController _TextControl = new TextEditingController();
       else{
         finalword = "Please enter your weight";
       }
-      if(weightValue == 5 || weightValue == 6){
+
+      if(weightValue == 5 || weightValue == 6 ){
       switch(weightValue){
         case 5:
         if (weightValue == 5 && (_TextControl.text.isNotEmpty && kgvalue > 0)){
@@ -63,8 +72,7 @@ final TextEditingController _TextControl = new TextEditingController();
         if (weightValue == 6 && (_TextControl.text.isNotEmpty && kgvalue > 0)){
             finalword = finalword + " lbs";
           }
-        break;
-      }
+        break;   }
       }
     });
   }
