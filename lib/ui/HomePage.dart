@@ -97,30 +97,30 @@ final TextEditingController _TextControl = new TextEditingController();
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new Radio(value: 0, groupValue: weightValue, onChanged: metrik),
+                      new Radio<int>(value: 0, groupValue: weightValue, onChanged: metrik),
                       new Text("kg"),
-                      new Radio(value: 1, groupValue: weightValue, onChanged: metrik),
+                      new Radio<int>(value: 1, groupValue: weightValue, onChanged: metrik,),
                       new Text("lbs")
                     ],
                   ),
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new Radio(
+                      new Radio<int>(
                           activeColor: Colors.brown,
                           value: 0, groupValue: radioValue, onChanged: radioOnChange),
                       new Text(
                         "Pluto",
                         style: new TextStyle(color: Colors.white),
                       ),
-                      new Radio(
+                      new Radio<int>(
                           activeColor: Colors.red,
                           value: 1, groupValue: radioValue, onChanged: radioOnChange),
                       new Text(
                         "Mars",
                         style: new TextStyle(color: Colors.white),
                       ),
-                      new Radio(
+                      new Radio<int>(
                           activeColor: Colors.orangeAccent,
                           value: 2, groupValue: radioValue, onChanged: radioOnChange),
                       new Text(
